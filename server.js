@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const pokemons = require('./models/pokemon');
+const pokemon = require('./models/pokemon');
 
 //Setting up the views
 app.set('views',__dirname + '/views');
@@ -12,9 +12,19 @@ app.get('/', (req, res) => {
     res.send("Welcome to the Pokemon App!")
 })
 
+
+
 //Index
-app.get('/pokemon',(req, res) => {
-    res.render("views/Index.js")
+
+app.get('/pokemon', (req, res) =>{
+    res.render('Index',{
+        pokemon: pokemon
+    })
+})
+app.get('/pokemon/:id',(req, res) => {
+    res.render("Show", {
+        pokemon: pokemon[req.params.id]
+    })
 })
 
 
