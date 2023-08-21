@@ -20,6 +20,7 @@ function Index({ pokemon }) {
           )
         })
       }
+      <a href={`/pokemon/new`}>Add a New Pokemon!</a> <br />
     </div>
   )
 }
